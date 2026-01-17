@@ -576,7 +576,7 @@ body {
 }
 
 .carousel-item {
-  height: auto; /* remove altura fixa */
+  height: 550px; /* remove altura fixa */
 }
 
 .carousel-img {
