@@ -1,16 +1,22 @@
 /* ================= RESET GLOBAL ================= */
 :root {
+  /* Paleta principal */
   --laranja: #FF3600;
   --laranja-hover: #FF5E2B;
   --turquesa: #00E5CC;
   --turquesa-hover: #00B8A9;
+
+  /* Tons escuros */
   --preto: #0B0B0B;
   --cinza-escuro: #1A1A1A;
   --cinza-card: #0F0F0F;
+
+  /* Tons claros */
   --branco: #F5F5F5;
   --cinza-claro: #B3B3B3;
 }
 
+/* Reset padrão */
 * {
   margin: 0;
   padding: 0;
@@ -18,158 +24,172 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+/* Scroll suave */
 html {
   scroll-behavior: smooth;
 }
 
+/* Corpo do site */
 body {
   background: var(--preto);
   color: var(--branco);
-  padding-top: 90px; /* altura real da navbar */
+
+  /* Compensa a navbar fixa */
+  padding-top: 90px;
 }
 
 /* ================= NAVBAR ================= */
 .navbar {
+  /* Gradiente ORIGINAL (mantido) */
   background: linear-gradient(
     90deg,
     var(--preto) 0%,
     var(--cinza-escuro) 50%,
     var(--cinza-claro) 100%
   );
+
   color: var(--branco);
   font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
-  scroll-behavior: smooth;
+
+  /* Sombra leve para destaque */
   box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+
   padding: 0.8rem 2rem;
 }
 
+/* Logo */
 .navbar .logo img {
   height: 45px;
   width: auto;
   display: block;
- 
 }
 
-/* ================= NAVBAR LINKS MODERNO ================= */
+/* ================= LINKS DA NAVBAR ================= */
 .navbar-nav .nav-link {
   position: relative;
+
   color: var(--branco) !important;
   font-weight: 500;
-  margin-left: 25px;
-  padding: 0.5rem 0;
   font-size: 1rem;
-  display: inline-block;
-  transition: color 0.35s ease, transform 0.35s ease, text-shadow 0.35s ease;
-  
-}
 
-/* ================= LINHA DESLIZANTE MODERNA ================= */
-.navbar-nav .nav-link::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: -2px;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--laranja), #ffdd99);
-  border-radius: 2px;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateX(-50%) scaleX(0);
-  transform-origin: center;
-}
-
-/* ================= HOVER ================= */
-.navbar-nav .nav-link {
-  position: relative;
-  color: var(--branco) !important;
-  font-weight: 500;
   margin-left: 25px;
   padding: 0.5rem 0;
-  transition: color 0.3s ease, letter-spacing 0.3s ease;
+
+  /* Transições suaves */
+  transition:
+    color 0.3s ease,
+    letter-spacing 0.3s ease;
 }
 
+/* Linha animada abaixo do link */
 .navbar-nav .nav-link::after {
   content: "";
   position: absolute;
   left: 50%;
   bottom: -6px;
+
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--laranja), #ff914d);
+
+  /* Gradiente ORIGINAL */
+  background: linear-gradient(
+    90deg,
+    var(--laranja),
+    #ff914d
+  );
+
   border-radius: 2px;
+
+  /* Glow leve */
   box-shadow: 0 0 10px rgba(255,54,0,0.6);
+
   transform: translateX(-50%);
   transition: width 0.35s ease;
 }
 
+/* Hover do link */
 .navbar-nav .nav-link:hover {
   color: var(--laranja) !important;
   letter-spacing: 0.5px;
 }
 
+/* Animação da linha no hover */
 .navbar-nav .nav-link:hover::after {
   width: 100%;
 }
 
+
 /* ================= HERO ================= */
 .hero {
   min-height: 100vh;
-  background: linear-gradient(90deg, rgba(0,0,0,.85), rgba(0,0,0,.95));
+
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.85),
+    rgba(0,0,0,.95)
+  );
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   text-align: center;
-  padding-top: 140px; /* ajuste fino aqui */
 
-
+  padding-top: clamp(120px, 14vh, 170px);
+  padding-inline: 24px;
 }
 
+/* ================= IMAGEM DO HERO ================= */
 .hero-content img {
-  max-width: 420px;
-  margin: 0 auto;
+  width: min(400px, 85vw);
+  margin: 12px auto 0;
   display: block;
-  margin-top:2px;
 }
 
+/* ================= TÍTULO PRINCIPAL ================= */
 .hero-title {
-  font-size: 3.4rem;
+  font-size: clamp(2.3rem, 5.8vw, 3.3rem);
   font-weight: 900;
-  letter-spacing: 2px;
+  letter-spacing: clamp(1.2px, 0.45vw, 1.9px);
   text-transform: uppercase;
   color: var(--branco);
-  margin-bottom: 8px;
+  margin-bottom: 14px;
 
-
-  /* Efeito 3D preto e branco */
-  text-shadow:
-    2px 2px 0 #000,     /* sombra base preta */
-    4px 4px 0 #000,     /* profundidade extra */
-    6px 6px 0 #000,     /* mais relevo */
-    0 0 4px #fff,       /* brilho branco suave */
-    0 0 8px #fff;       /* brilho mais amplo */
-  transition: all 0.4s ease;
-}
-
-/* Hover opcional para destaque */
-.hero-title:hover {
-  transform: scale(1.05);
   text-shadow:
     2px 2px 0 #000,
     4px 4px 0 #000,
     6px 6px 0 #000,
-    0 0 6px #fff,
-    0 0 12px #fff;
+    0 0 3px #fff,
+    0 0 6px #fff;
+
+  transition: transform 0.4s ease, text-shadow 0.4s ease;
 }
 
+/* Hover elegante (desktop) */
+@media (hover: hover) {
+  .hero-title:hover {
+    transform: scale(1.04);
+    text-shadow:
+      2px 2px 0 #000,
+      4px 4px 0 #000,
+      6px 6px 0 #000,
+      0 0 5px #fff,
+      0 0 10px #fff;
+  }
+}
+
+/* ================= SUBTÍTULO ================= */
 .hero-title-personal {
-  margin-top: 10px;
-  font-size: 2.2rem;
+  margin-top: 14px;
+
+  font-size: clamp(1.5rem, 3.8vw, 2.1rem);
   font-weight: 600;
   font-style: italic;
-  letter-spacing: 1.8px;
+  letter-spacing: clamp(1.2px, 0.55vw, 1.7px);
   text-transform: uppercase;
+
   background: linear-gradient(
     110deg,
     #ff3600 0%,
@@ -179,28 +199,41 @@ body {
     #6be3ff 78%,
     #00D7FF 100%
   );
+
   background-size: 200% 100%;
   background-position: center;
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
   display: inline-block;
-  padding: 0 8px;
+  padding: 0 12px;
 }
 
+/* Linha decorativa */
 .hero-title-personal::after {
   content: "";
   display: block;
-  width: 75%;
+
+  width: clamp(55%, 68%, 72%);
   height: 2px;
-  margin: 14px auto 0;
-  background: linear-gradient(90deg, transparent, #00D7FF, transparent);
-  opacity: 0.65;
+  margin: 16px auto 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00D7FF,
+    transparent
+  );
+
+  opacity: 0.6;
 }
 
+/* ================= LOGO AUXILIAR ================= */
 .logo-consultoria {
   display: block;
-  margin: 2% auto 0;
-  max-width: 520px;
+  margin: 2.5% auto 0;
+  width: min(480px, 88vw);
 }
 
 
@@ -216,27 +249,27 @@ body {
 /* ================= CONSULTORIA PREMIUM ================= */
 .consultoria {
   width: 100%;
-  background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+  background: linear-gradient(135deg, #0b0b0b, #161616);
   border-radius: 24px;
   border: 2px solid var(--laranja);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.6);
 
-  /* CENTRALIZAÇÃO REAL */
+  /* sombra mais elegante e leve */
+  box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 40px 30px;
+  padding: 42px 32px;
   margin-top: -80px;
 }
 
-/* TEXTO */
+/* TEXTO DA CONSULTORIA */
 .consultoria-title {
-  font-size: 1.7rem;
+  font-size: 1.75rem;
   font-weight: 900;
-  letter-spacing: 1.5px;
-  line-height: 1.25;
-
+  letter-spacing: 1.4px;
+  line-height: 1.3;
   text-align: center;
   margin: 0;
 
@@ -252,12 +285,13 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  transition: transform 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
 .consultoria-title:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
+
 
 
 
@@ -571,35 +605,40 @@ body {
 
 /* ================= CARROSSEL ================= */
 #carouselResultados {
-  max-width: 900px;
+  max-width: min(900px, 92vw);
   margin: 0 auto;
+  padding: clamp(10px, 2vw, 20px);
 }
 
+/* Bootstrap precisa de altura consistente */
 .carousel-item {
-  height: 550px; /* remove altura fixa */
+  height: clamp(260px, 42vw, 560px);
 }
 
+/* ================= IMAGEM ================= */
 .carousel-img {
   width: 100%;
-  max-height: 500px;     /* controla tamanho */
-  object-fit: contain;  /* NÃO corta a imagem */
-  border-radius: 20px;
+  height: 100%;
+
+  /* Mantém proporção correta */
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: clamp(14px, 2vw, 22px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+
   display: block;
-  margin: 0 auto;
+}
+
+/* ================= INTERAÇÃO (DESKTOP) ================= */
+@media (hover: hover) {
+  .carousel-img:hover {
+    transform: scale(1.02);
+    filter: brightness(1.05);
+  }
 }
 
 
-/* RESPONSIVO CARROSSEL */
-@media (max-width: 992px) { .carousel-img { height: 380px; } }
-@media (max-width: 768px) { .carousel-img { height: 300px; } }
-@media (max-width: 480px) { .carousel-img { height: 250px; } }
-
-
-
-
-
-
-/* ================= CTA ================= */
 /* ================= CTA ================= */
 .cta-section {
   display: flex;
@@ -687,6 +726,36 @@ body {
 .cta-image img:hover {
   transform: scale(1.05);
   box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+}
+
+
+/* ===== AJUSTE ISOLADO DA IMAGEM PERSONAL ===== */
+#personal {
+  width: min(460px, 90vw);
+  height: auto;
+
+  display: block;
+  margin: 0 auto;
+
+  object-fit: contain;
+
+  /* Garante que ela apareça */
+  opacity: 1;
+  visibility: visible;
+
+  /* Destaque visual profissional */
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.8));
+  position: relative;
+  z-index: 5;
+}
+.cta-section {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+@media (max-width: 576px) {
+  #personal {
+    width: 85vw;
+  }
 }
 
 /* ================= RESPONSIVO CTA ================= */
@@ -779,4 +848,48 @@ body {
   .whatsapp-float i {
     font-size: 28px;
   }
+}
+/* ===== AJUSTE SOMENTE DA IMAGEM DO PERSONAL (CTA) ===== */
+.cta-image img {
+  width: min(460px, 90vw);
+  height: auto;
+
+  display: block;
+  margin: 0 auto;
+
+  object-fit: contain;
+
+  /* Destaque visual premium */
+  filter: drop-shadow(0 18px 45px rgba(0,0,0,0.85));
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 480px) {
+  .cta-image img {
+    width: 85vw;
+  }
+}
+/* ===== CORREÇÃO DEFINITIVA DA IMAGEM CTA ===== */
+.cta-image {
+  min-height: 420px;              /* garante espaço real */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+}
+
+.cta-image img {
+  width: min(460px, 90vw);
+  height: auto;
+
+  display: block;
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 20px 45px rgba(0,0,0,0.75));
+  z-index: 3;
+  position: relative;
 }
